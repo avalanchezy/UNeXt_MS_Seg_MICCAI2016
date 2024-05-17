@@ -19,8 +19,8 @@ The code is stable while using Python 3.6.13, CUDA >=10.1
 
 - Clone this repository:
 ```bash
-git clone https://github.com/jeya-maria-jose/UNeXt-pytorch
-cd UNeXt-pytorch
+[git clone https://github.com/jeya-maria-jose/UNeXt-pytorch
+](https://github.com/avalanchezy/UNeXt_MS_Seg_MICCAI2016.git)cd UNeXt-pytorch
 ```
 
 To install all the dependencies using conda:
@@ -42,34 +42,69 @@ opencv-python==4.5.1.48
 
 ## Datasets
 
-1) ISIC 2018 - [Link](https://challenge.isic-archive.com/data/)
-2) BUSI - [Link](https://www.kaggle.com/aryashah2k/breast-ultrasound-images-dataset)
+MICCAI 2016 chanllenge - [Link]([https://challenge.isic-archive.com/data/](https://portal.fli-iam.irisa.fr/msseg-challenge/english-msseg-data/))
+
+```bash
+python kfold.py
+```
+
 
 ## Data Format
 
-Make sure to put the files as the following structure (e.g. the number of classes is 2):
+Make sure to put the files as the following structure (e.g. the number of classes is 1):
 
 ```
-inputs
-└── <dataset name>
-    ├── images
-    |   ├── 001.png
-    │   ├── 002.png
-    │   ├── 003.png
-    │   ├── ...
-    |
-    └── masks
-        ├── 0
-        |   ├── 001.png
-        |   ├── 002.png
-        |   ├── 003.png
-        |   ├── ...
-        |
-        └── 1
-            ├── 001.png
-            ├── 002.png
-            ├── 003.png
-            ├── ...
+data/
+├── data0/
+│   ├── train/
+│   │   ├── images/
+│   │   └── masks/0/
+│   ├── val/
+│   │   ├── images/
+│   │   └── masks/0/
+│   └── test/
+│       ├── images/
+│       └── masks/0/
+├── data1/
+│   ├── train/
+│   │   ├── images/
+│   │   └── masks/0/
+│   ├── val/
+│   │   ├── images/
+│   │   └── masks/0/
+│   └── test/
+│       ├── images/
+│       └── masks/0/
+├── data2/
+│   ├── train/
+│   │   ├── images/
+│   │   └── masks/0/
+│   ├── val/
+│   │   ├── images/
+│   │   └── masks/0/
+│   └── test/
+│       ├── images/
+│       └── masks/0/
+├── data3/
+│   ├── train/
+│   │   ├── images/
+│   │   └── masks/0/
+│   ├── val/
+│   │   ├── images/
+│   │   └── masks/0/
+│   └── test/
+│       ├── images/
+│       └── masks/0/
+└── data4/
+    ├── train/
+    │   ├── images/
+    │   └── masks/0/
+    ├── val/
+    │   ├── images/
+    │   └── masks/0/
+    └── test/
+        ├── images/
+        └── masks/0/
 ```
 
 For binary segmentation problems, just use folder 0.
@@ -78,11 +113,13 @@ For binary segmentation problems, just use folder 0.
 
 1. Train the model.
 ```
-python train.py --dataset <dataset name> --arch UNext --name <exp name> --img_ext .png --mask_ext .png --lr 0.0001 --epochs 500 --input_w 512 --input_h 512 --b 8
+python train.py --dataset <dataset name> --arch UNext --name <exp name> --img_ext .png --mask_ext .png --lr 0.0001 --epochs 500 --input_w 256 --input_h 320 --b 8
 ```
 2. Evaluate.
 ```
-python val.py --name <exp name>
+python testk.py
+python predictk.py
+python reconstructk.py
 ```
 
 ### Acknowledgements:
