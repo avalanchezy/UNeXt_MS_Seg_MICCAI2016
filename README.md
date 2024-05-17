@@ -30,16 +30,6 @@ conda env create -f environment.yml
 conda activate unext
 ```
 
-If you prefer pip, install following versions:
-
-```bash
-timm==0.3.2
-mmcv-full==1.2.7
-torch==1.7.1
-torchvision==0.8.2
-opencv-python==4.5.1.48
-```
-
 ## Datasets
 
 [MICCAI 2016 challenge](https://portal.fli-iam.irisa.fr/msseg-challenge/english-msseg-data/)
@@ -107,14 +97,14 @@ data/
         └── masks/0/
 ```
 
-For binary segmentation problems, just use folder 0.
-
 ## Training and Validation
 
 1. Train the model.
 ```
 python train.py --dataset <dataset name> --arch UNext --name <exp name> --img_ext .png --mask_ext .png --lr 0.0001 --epochs 500 --input_w 256 --input_h 320 --b 8
 ```
+Attention with the version of albumentations.
+
 2. Evaluate.
 ```
 python testk.py
