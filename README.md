@@ -19,7 +19,7 @@ The code is stable while using Python 3.6.13, CUDA >=10.1
 
 - Clone this repository:
 ```bash
-git clone https://github.com/jeya-maria-jose/UNeXt-pytorch
+git clone https://github.com/avalanchezy/UNeXt_MS_Seg_MICCAI2016.git
 ```
 
 To install all the dependencies using conda:
