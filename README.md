@@ -42,7 +42,7 @@ opencv-python==4.5.1.48
 
 ## Datasets
 
-MICCAI 2016 chanllenge - [Link]([https://challenge.isic-archive.com/data/](https://portal.fli-iam.irisa.fr/msseg-challenge/english-msseg-data/))
+[MICCAI 2016 challenge](https://portal.fli-iam.irisa.fr/msseg-challenge/english-msseg-data/)
 
 ```bash
 python kfold.py
