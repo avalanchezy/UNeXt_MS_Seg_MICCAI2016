@@ -100,7 +100,7 @@ data/
 
 1. Train the model.
 ```
-python train.py --dataset <dataset name> --arch UNext --name <exp name> --img_ext .png --mask_ext .png --lr 0.0001 --epochs 500 --input_w 256 --input_h 320 --b 8
+python traink.py --dataset data --arch UNext --name <exp name> --img_ext .png --mask_ext .png --lr 0.0001 --epochs 500 --input_w 256 --input_h 256 --b 8
 ```
 Attention with the version of albumentations.
 
